@@ -1,0 +1,140 @@
+2014jun02
+
+
+Exercício Programa 3.
+Descricao: Calcular uma arvore geradora minima via algoritmo de Prim (ou algoritmo de Kruskal).
+
+Dica: 
+.Se optar pelo algoritmo de Prim, voce pode usar FilaPrioridade.java para ExtraiMinimo().
+
+Entrada: Um grafo em arquivo TXT.
+Saida:   Imprime a arvore geradora minima (MST).
+
+
+Sugestao: 
+Crie um modulo Prim.java para o algoritmo de Prim (ou Kruskal.java, se preferir o algoritmo de Kruskal), 
+e um modulo Mst.java para o calculo de uma arvore geradora minima.
+Desta forma,
+
+1) para compilar, execute:
+
+   javac Mst.java
+
+
+2) para rodar, execute:
+
+   java Mst grafoXX.txt
+
+--
+
+Exemplos:
+
+D:\java\ep3>java Mst grafo3a.txt
+Entrada: grafo3a.txt
+
+Listas de Adjacencia:
+1: 2(2) 4(4)
+2: 5(1) 1(2) 4(9)
+3: 5(14) 6(3)
+4: 2(9) 1(4) 5(6)
+5: 4(6) 2(1) 3(14)
+6: 3(3)
+
+Matriz de Adjacencia:
+. 2 . 4 . .
+2 . . 9 1 .
+. . . . 14 3
+4 9 . . 6 .
+. 1 14 6 . .
+. . 3 . . .
+
+Total de vertices: 6
+Total de arcos: 14
+
+MST:
+Peso = 24
+PI: 1(NIL); 2(1); 3(5); 4(1); 5(2); 6(3);
+
+--
+
+D:\java\ep3>java Mst grafo3b.txt
+Entrada: grafo3b.txt
+
+Listas de Adjacencia:
+s: t(2) y(5) z(7)
+t: x(4) y(8) s(2)
+x: z(8) t(4) y(3)
+y: t(8) x(3) z(1) s(5)
+z: s(7) x(8) y(1)
+
+Matriz de Adjacencia:
+. 2 . 5 7
+2 . 4 8 .
+. 4 . 3 8
+5 8 3 . 1
+7 . 8 1 .
+
+Total de vertices: 5
+Total de arcos: 16
+
+MST:
+Peso = 10
+PI: s(NIL); t(s); x(t); y(x); z(y);
+
+--
+
+D:\java\ep3>java Mst grafo3c.txt
+Entrada: grafo3c.txt
+
+Listas de Adjacencia:
+u: v(1) x(2)
+v: y(2) u(1) x(2)
+w: y(7) z(9)
+x: v(2) u(2) y(1)
+y: x(1) v(2) w(7)
+z: w(9)
+
+Matriz de Adjacencia:
+. 1 . 2 . .
+1 . . 2 2 .
+. . . . 7 9
+2 2 . . 1 .
+. 2 7 1 . .
+. . 9 . . .
+
+Total de vertices: 6
+Total de arcos: 14
+
+MST:
+Peso = 20
+PI: u(NIL); v(u); w(y); x(u); y(x); z(w);
+
+--
+
+D:\java\ep3>java Mst grafo3d.txt
+Entrada: grafo3d.txt
+
+Listas de Adjacencia:
+0: 1(7) 2(4) 3(6) 4(4) 5(4)
+1: 3(9) 4(8) 0(7) 2(1) 5(1)
+2: 1(1) 0(4) 5(3)
+3: 4(4) 5(5) 0(6) 1(9)
+4: 5(3) 0(4) 1(8) 3(4)
+5: 1(1) 2(3) 0(4) 3(5) 4(3)
+
+Matriz de Adjacencia:
+. 7 4 6 4 4
+7 . 1 9 8 1
+4 1 . . . 3
+6 9 . . 4 5
+4 8 . 4 . 3
+4 1 3 5 3 .
+
+Total de vertices: 6
+Total de arcos: 26
+
+MST:
+Peso = 13
+PI: 0(NIL); 1(2); 2(0); 3(4); 4(5); 5(1);
+
+--
