@@ -27,7 +27,7 @@ public class EP3 {
         LerGrafoTXT leGrafo = new LerGrafoTXT();
         Grafo grafo = leGrafo.LerArquivo("grafo3c.txt");
         MST_Prim(grafo, grafo.getVertices().get(0));
-        imprimeArvoraGradoraMinima(grafo);
+        imprimeArvoraGeradoraMinima(grafo);
     }
 
     public static void MST_Prim(Grafo G, Vertice verticeInicial) {
@@ -51,7 +51,7 @@ public class EP3 {
         }
     }
 
-    public static void imprimeArvoraGradoraMinima(Grafo G) {
+    public static void imprimeArvoraGeradoraMinima(Grafo G) {
         for (Vertice vertice : G.getVertices()) {
             System.out.printf(vertice.getNome() + "(" + vertice.getPai() + "); ");
         }
