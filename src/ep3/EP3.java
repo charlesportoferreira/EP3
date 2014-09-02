@@ -25,7 +25,7 @@ public class EP3 {
      */
     public static void main(String[] args) {
         LerGrafoTXT leGrafo = new LerGrafoTXT();
-        Grafo grafo = leGrafo.LerArquivo("grafo3c.txt");
+        Grafo grafo = leGrafo.LerArquivo(args[0]);
         MST_Prim(grafo, grafo.getVertices().get(0));
         imprimeArvoraGeradoraMinima(grafo);
     }
@@ -52,9 +52,12 @@ public class EP3 {
     }
 
     public static void imprimeArvoraGeradoraMinima(Grafo G) {
+        double pesoTotal = 0;
         for (Vertice vertice : G.getVertices()) {
             System.out.printf(vertice.getNome() + "(" + vertice.getPai() + "); ");
+            pesoTotal += vertice.getChave();
         }
+        System.out.println("\nPeso = " + pesoTotal);
     }
 
 }
